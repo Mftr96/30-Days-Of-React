@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Roboto:300,400,500&display=swap"
+    rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>30 Days Of React Challenge</title>
+  <style>
+    /* == General style === */
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      line-height: 1.5;
+      font-family: 'Montserrat';
+      font-weight: 300;
+      color: black;
+    }
+
+    .root {
+      min-height: 100%;
+      position: relative;
+    }
+
+    .header-wrapper,
+    .main-wrapper,
+    .footer-wrapper {
+      width: 85%;
+      margin: auto;
+    }
+
+    .header-wrapper,
+    .main-wrapper {
+      padding: 10px;
+      margin: 2px auto;
+    }
+
+    h1 {
+      font-size: 70px;
+      font-weight: 300;
+    }
+
+    h2,
+    h3 {
+      font-weight: 300;
+    }
+
+    header {
+      background-color: #61dbfb;
+      padding: 10px;
+    }
+
+    main {
+      padding: 10px;
+      padding-bottom: 60px;
+      /* Height of the footer */
+    }
+
+    ul {
+      margin-left: 15px;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      /* Height of the footer */
+      background: #6cf;
+    }
+
+    .footer-wrapper {
+      font-weight: 400;
+      text-align: center;
+      line-height: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    console.log(React);
+    const rootElement = document.querySelector('.root');
+    //JSX element
+    //per convezione nome variabile = tag html che racchiude 
+    //definizione costanti da usare nell'header
+    const welcome='benvenuto alla sfida di react';
+    const title='inizia con react'
+    const subtitle='libreria javascript'
+    const authorFirstName='Matteo'
+    const authorLastName='Federici'
+
+
+
+    const header = (
+      <header
+      //pezzettino codice per utilizzo con date 
+      /*
+      const yearBorn = 1820
+          const currentYear = new Date().getFullYear()
+          const age = currentYear - yearBorn
+          const personAge = <p> {age}</p>
+      */
+
+      >
+        <div className='header-wrapper'>
+          <h1>{welcome}</h1>
+          <h2>{title}</h2>
+          <p>{subtitle}</p>
+          <p>{authorFirstName} {authorLastName}</p>
+
+        </div>
+      </header>
+      /*oppure mettendo in una costante(usando solo una graffa in questo caso)
+      const style={border:'2px solid orange', color:'black', fontSize:'18px'}
+      e dentro header passiamo <header style={style}></header>
+      */
+    );
+
+    //test per le somme
+    const numOne = 3;
+    const numTwo = 2; 
+    const result=(
+      <p>
+        {numOne} +{numTwo} ={numOne + numTwo}
+      </p>
+    );
+
+    const yearBorn=1820;
+    const currentYear=new Date().getFullYear();
+    const age= currentYear - yearBorn;
+    const personAge= <p> {age} </p>;
+    
+    const techs=['HTML','CSS','JAVASCRIPT'];
+    //IMPORTANTE:  nell'esecuzione di cicli map, bisogna inserire la key all'interno della funzione
+    const techFormatted=techs.map((tech)=> <li key={tech}>{tech}</li>);
+
+
+    const main = (
+      <main>
+        <div className='main-wrapper'>
+
+          <p>prerequisiti per react:</p>
+          <ul>{techFormatted} </ul>
+        </div>
+      </main>
+    );
+
+    const footerStyles = {
+      backgroundColor: '61DBFB',
+    }
+
+    const footer = (
+      <footer>
+        <div className='footer-wrapper'>
+          <p>copyright 2025</p>
+
+        </div>
+
+      </footer>
+    );
+
+    const app = (
+      <div>
+        {header}
+        {main}
+        {footer}
+      </div>
+    )
+
+    //renderizziamo jsx utilizzando il pacchetto reactDOM 
+    //reactDOM possiede una funzione chiamata render ed il metodo render accetta due argomenti
+    ReactDOM.render(app, rootElement);
+
+
+  </script>
+</body>
+
+</html>
