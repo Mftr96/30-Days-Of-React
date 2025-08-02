@@ -1,17 +1,106 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+//index.js
+// importing the react and react-dom package
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import React from 'react'
+//attenzione che se metti metodo vecchio react/dom non ti funziona da react 19 
+import { createRoot } from 'react-dom/client'
+import screenshot from './images/Screenshot 2024-10-16 193212.png'; 
+//mettere sempre gli import prima di tutto
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+/*importazione elementi da day-2*/ 
+const jsxElement = <h1>This is a JSX element</h1>;
+    console.log(React);
+    const rootElement = document.getElementById('root');
+    //JSX element
+    //per convezione nome variabile = tag html che racchiude 
+    //definizione costanti da usare nell'header
+    const welcome='benvenuto alla sfida di react';
+    const title='inizia con react'
+    const subtitle='libreria javascript'
+    const authorFirstName='Matteo'
+    const authorLastName='Federici'
+
+
+
+    const header = (
+      <header
+
+
+      >
+        <div className='header-wrapper'>
+          <h1>{welcome}</h1>
+          <h2>{title}</h2>
+          <p>{subtitle}</p>
+          <p>{authorFirstName} {authorLastName}</p>
+
+        </div>
+      </header>
+      /*oppure mettendo in una costante(usando solo una graffa in questo caso)
+      const style={border:'2px solid orange', color:'black', fontSize:'18px'}
+      e dentro header passiamo <header style={style}></header>
+      */
+    );
+
+    //test per le somme
+    const numOne = 3;
+    const numTwo = 2; 
+    const result=(
+      <p>
+        {numOne} +{numTwo} ={numOne + numTwo}
+      </p>
+    );
+
+    const yearBorn=1820;
+    const currentYear=new Date().getFullYear();
+    const age= currentYear - yearBorn;
+    const personAge= <p> {age} </p>;
+    
+    const techs=['HTML','CSS','JAVASCRIPT'];
+    //IMPORTANTE:  nell'esecuzione di cicli map, bisogna inserire la key all'interno della funzione
+    const techFormatted=techs.map((tech)=> <li key={tech}>{tech}</li>);
+
+
+    const main = (
+      <main>
+        <div className='main-wrapper'>
+
+          <p>prerequisiti per react:</p>
+          <ul>{techFormatted} </ul>
+        </div>
+      </main>
+    );
+
+    const footerStyles = {
+      backgroundColor: '61DBFB',
+    }
+
+    const user=(
+      <div>
+         <img src={screenshot} alt='screenshot'/>
+      </div>
+
+    );
+
+    const footer = (
+      <footer>
+        <div className='footer-wrapper'>
+          <p>copyright 2025</p>
+
+        </div>
+
+      </footer>
+    );
+
+    const app = (
+      <div>
+        {header}
+        {main}
+        {footer}
+        {user}
+      </div>
+    )
+
+const root = createRoot(rootElement);
+
+root.render(app);
