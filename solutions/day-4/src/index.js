@@ -18,13 +18,12 @@ const rootElement = document.getElementById('root');
 const welcome = 'benvenuto alla sfida di react';
 const title = 'inizia con react'
 const subtitle = 'libreria javascript'
-const authorFirstName = 'Matteo'
-const authorLastName = 'Federici'
 
 
 
-const header = (
-  <header
+
+const Header = (props)=>{
+  return   <header
 
 
   >
@@ -32,7 +31,7 @@ const header = (
       <h1>{welcome}</h1>
       <h2>{title}</h2>
       <p>{subtitle}</p>
-      <p>{authorFirstName} {authorLastName}</p>
+      <p>{props.authorFirstName} {props.authorLastName}</p>
 
     </div>
   </header>
@@ -40,7 +39,9 @@ const header = (
   const style={border:'2px solid orange', color:'black', fontSize:'18px'}
   e dentro header passiamo <header style={style}></header>
   */
-);
+
+
+};
 
 //test per le somme
 const numOne = 3;
@@ -107,16 +108,16 @@ const inputForm = (
       </footer>
       );
 
-      const app = (
-      <div>
-        {header}
+      const App = () =>{
+        return(
+        <div className='app'>            
+        <Header authorFirstName="Matteo" authorLastName="Federici"/>
         {main}
-        {inputForm}
         {footer}
-        {user}
-      </div>
-      )
+      
+      </div>)
+      }
 
       const root = createRoot(rootElement);
-
-      root.render(app);
+      //non c'è bisogno di utilizzare rootElement con il metodo render
+      root.render(<App />);
