@@ -5,24 +5,16 @@ import React from 'react'
 //attenzione che se metti metodo vecchio react/dom non ti funziona da react 19 
 import { createRoot } from 'react-dom/client'
 import screenshot from './images/Screenshot 2024-10-16 193212.png';
+import Numbers from './atoms/Numbers.js';
+import Button from './atoms/Button.js';
+import Skills from './atoms/Skills.js';
 import Header from './components/Header.js';
+import main from './components/Main.js';
+import footer from './components/Footer.js';
 //mettere sempre gli import prima di tutto
-
-
-/*importazione elementi da day-2*/
-const jsxElement = <h1>This is a JSX element</h1>;
 console.log(React);
 const rootElement = document.getElementById('root');
-//JSX element
-//per convezione nome variabile = tag html che racchiude 
-//definizione costanti da usare nell'header
-const welcome = 'benvenuto alla sfida di react';
-const title = 'inizia con react';
-const subtitle = 'libreria javascript';
-const author={
-  firstName:'Matteo',
-  lastName:'Federici'
-}
+
 const skills=[
   ['HTML','7',],
   ['CSS','8',],
@@ -36,35 +28,13 @@ const countries=[
   {name:'Norway', city:'Oslo'},
   {name:'Italy', city:'Roma'},
 ]
-const Button=(props) =>{
-  // mi raccomando le parentesi dentro il return sennò si spacca !
-  return( 
-  <button onClick={props.onClick}>{props.text}</button>
-)
 
-};
-
-//componente numbers per provare map
-const Numbers=({numbers})=>{
-  const list=numbers.map((number)=><li>{number}</li>);
-  return list;
-}
-
-//componente skill da utilizzare per skills
-//definiamo props come skill che si aspetta array con due valori 
-//definiti tech e level
-//se è solo html racchiudi con tonde
 const Skill=({skill:[tech,level]})=>(
     <li>
     {tech} {level}
   </li>
 )
 //creiamo il componente Skills che riutilizza Skills
-const Skills=({skills})=>{
-  const skillsList= skills.map((skill) => <Skill skill={skill}/>);
-  console.log(skillsList);
-  return <ul>{skillsList}</ul>
-}
 
 //componente country con array di oggetti
 const Country= ({country:{name,city}}) =>{
@@ -105,9 +75,7 @@ const currentYear = new Date().getFullYear();
 const age = currentYear - yearBorn;
 const personAge = <p> {age} </p>;
 
-const techs = ['HTML', 'CSS', 'JAVASCRIPT'];
 //IMPORTANTE:  nell'esecuzione di cicli map, bisogna inserire la key all'interno della funzione
-const techFormatted = techs.map((tech) => <li key={tech}>{tech}</li>);
 const inputStyle={width: '600px', margin:'0 auto'};
 const inputForm = (
   <div style={inputStyle}>
@@ -135,15 +103,6 @@ const UserCard=({user:{firstName,lastName,image} })=>(
 </div>
 );
 
-      const main = (
-      <main>
-        <div className='main-wrapper'>
-
-          <p>prerequisiti per react:</p>
-          <ul>{techFormatted} </ul>
-        </div>
-      </main>
-      );
 
       const footerStyles = {
         backgroundColor: '61DBFB',
@@ -156,15 +115,6 @@ const UserCard=({user:{firstName,lastName,image} })=>(
 
       );
 
-      const footer = (
-      <footer>
-        <div className='footer-wrapper'>
-          <p>copyright 2025</p>
-
-        </div>
-
-      </footer>
-      );
 
       const App = () =>{
         const numbers=[1,2,3,4];
