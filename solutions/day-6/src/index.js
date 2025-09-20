@@ -5,6 +5,7 @@ import React from 'react'
 //attenzione che se metti metodo vecchio react/dom non ti funziona da react 19 
 import { createRoot } from 'react-dom/client'
 import screenshot from './images/Screenshot 2024-10-16 193212.png';
+import Header from './components/Header.js';
 //mettere sempre gli import prima di tutto
 
 
@@ -82,34 +83,13 @@ const Countries=({countries}) =>{
 }
 
 
-const Header = ({
-  data:{
-    welcome,
-    title,
-    subtitle,
-    author:{firstName, lastName },
-    numbers,
-
-  }
-})=>{
-  return (
-    <header>
-    <div className='header-wrapper'>
-      <h1>{welcome}</h1>
-      <h2>{title}</h2>
-      <p>{subtitle}</p>
-      <p>{firstName} {lastName}</p>
-      
-
-    </div>
-  </header>)
   /*oppure mettendo in una costante(usando solo una graffa in questo caso)
   const style={border:'2px solid orange', color:'black', fontSize:'18px'}
   e dentro header passiamo <header style={style}></header>
   */
 
 
-};
+
 
 //test per le somme
 const numOne = 3;

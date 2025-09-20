@@ -16,25 +16,46 @@ const rootElement = document.getElementById('root');
 //per convezione nome variabile = tag html che racchiude 
 //definizione costanti da usare nell'header
 const welcome = 'benvenuto alla sfida di react';
-const title = 'inizia con react'
-const subtitle = 'libreria javascript'
+const title = 'inizia con react';
+const subtitle = 'libreria javascript';
+const numbers=[1,2,3];
+const author={
+  firstName:'Matteo',
+  lastName:'Federici'
+}
+const Button=(props) =>{
+  // mi raccomando le parentesi dentro il return sennò si spacca !
+  return( 
+  <button onClick={props.onClick}>{props.text}</button>
+)
+
+};
 
 
 
 
-const Header = (props)=>{
-  return   <header
 
 
-  >
+const Header = ({
+  data:{
+    welcome,
+    title,
+    subtitle,
+    author:{firstName, lastName },
+    numbers,
+
+  }
+})=>{
+  return (
+    <header>
     <div className='header-wrapper'>
       <h1>{welcome}</h1>
       <h2>{title}</h2>
       <p>{subtitle}</p>
-      <p>{props.authorFirstName} {props.authorLastName}</p>
-
+      <p>{firstName} {lastName}</p>
+      <p>{numbers}</p>
     </div>
-  </header>
+  </header>)
   /*oppure mettendo in una costante(usando solo una graffa in questo caso)
   const style={border:'2px solid orange', color:'black', fontSize:'18px'}
   e dentro header passiamo <header style={style}></header>
@@ -77,6 +98,16 @@ const inputForm = (
   </div>
 );
 
+
+const UserCard=({user:{firstName,lastName,image} })=>(
+<div>
+  <img src={image} alt={firstName}/>
+  <h2>
+    {firstName} {lastName}
+  </h2>
+</div>
+);
+
       const main = (
       <main>
         <div className='main-wrapper'>
@@ -109,11 +140,35 @@ const inputForm = (
       );
 
       const App = () =>{
+
+        const data={
+          welcome:'ciao',
+          title:'partendo React',
+          subtitle:'librerie',
+          author:{
+            firstName:'Matteo',
+            lastName:'Federici',
+          },
+          date:new Date(),
+        }
+        const sayHi=()=>{
+          alert('Hi');
+        }
+        const greetPeople=()=>{
+          alert('Benvenuto alla sfida di React!');
+        }
+        const handleTime= ()=>{
+          alert(new Date); 
+        }
+
         return(
         <div className='app'>            
-        <Header authorFirstName="Matteo" authorLastName="Federici"/>
+        <Header data={data}/>
+        <Button text='say hi' onClick={sayHi}/>
+        <Button text='clicca per il benvenuto' onClick={handleTime}/>
         {main}
         {footer}
+
       
       </div>)
       }
