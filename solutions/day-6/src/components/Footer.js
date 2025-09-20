@@ -1,3 +1,6 @@
+      
+      //se è solo html racchiudi con tonde
+
       const footer = (
       <footer>
         <div className='footer-wrapper'>

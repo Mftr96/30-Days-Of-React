@@ -140,7 +140,7 @@ const UserCard=({user:{firstName,lastName,image} })=>(
       );
 
       const App = () =>{
-
+//stile al momento inserito da index.html
         const data={
           welcome:'ciao',
           title:'partendo React',
