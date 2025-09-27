@@ -1,5 +1,5 @@
 // importing the react and react-dom package
-
+import style from './style.css';
 import React from 'react'
 //attenzione che se metti metodo vecchio react/dom non ti funziona da react 19 
 import { createRoot } from 'react-dom/client'
