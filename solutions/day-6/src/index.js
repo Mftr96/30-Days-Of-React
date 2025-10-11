@@ -13,6 +13,7 @@ import Header from './components/Header.js';
 import main from './components/Main.js';
 import footer from './components/Footer.js';
 import UserCard from './atoms/UserCard.js';
+import Square from './exercise/Square.js';
 //mettere sempre gli import prima di tutto
 console.log(React);
 const rootElement = document.getElementById('root');
@@ -77,6 +78,7 @@ const countries=[
         <Header data={data}/>
         <Numbers numbers={numbers}/>
         <Skills skills={skills}/>
+        <Square number="1"/> 
         <Countries countries={countries} />
         <Button text='clicca per il benvenuto' onClick={handleTime}/>
         <Button text='say hi' onClick={sayHi}/>

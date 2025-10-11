@@ -64,3 +64,12 @@
       text-align: center;
       line-height: 60px;
     }
+
+    .square:nth-child(even){
+      background-color: green;
+    }
+
+    .square:nth-child(odd){
+      background-color: yellow;
+    }
+
