@@ -11,7 +11,7 @@ const containerStyle = {
 
 const SquareContainer = () => {
     const squares = Array.from({ length: 32 }, (_, i) => i + 1);
-    console.log(squares);
+    //console.log(squares);
     return(
         <div style={containerStyle}>
             {squares.map((index)=>(
